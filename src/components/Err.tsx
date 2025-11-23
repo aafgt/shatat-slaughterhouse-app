@@ -1,0 +1,35 @@
+import { NavLink, useRouteError } from "react-router";
+
+interface RouteError {
+  status?: number;
+  data?: any;
+}
+
+const Err: React.FC = () => {
+  const error = useRouteError() as RouteError;
+
+  let title = "Error";
+  let message = "An error has occurred...";
+
+  if (error.status === 500) {
+    message = error.data?.message;
+  }
+
+  if (error.status === 404) {
+    title = "Not found!";
+    message = "Could not find resource or page.";
+  }
+
+  return (
+    <div className="min-h-screen bg-green-900 text-white flex flex-col justify-center items-center text-center">
+      <h1 className="text-8xl max-md:text-5xl max-sm:text-4xl font-bold">{title}</h1>
+      <p className="text-3xl max-md:text-xl">{message}</p>
+
+      <NavLink to="/shatat-slaughterhouse/dashboard" className="bg-green-500 px-5 py-2 rounded-md uppercase my-5 hover:cursor-pointer hover:bg-green-400">
+        Go to Dashboard
+      </NavLink>
+    </div>
+  )
+}
+
+export default Err;
