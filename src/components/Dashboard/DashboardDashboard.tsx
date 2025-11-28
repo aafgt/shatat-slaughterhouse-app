@@ -29,7 +29,7 @@ const DashboardDashboard: React.FC<DashboardProps> = ({
       const [, startDate, endDate] = queryKey as [string, string, string];
       return fetchDashboard({ signal, startDate, endDate });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

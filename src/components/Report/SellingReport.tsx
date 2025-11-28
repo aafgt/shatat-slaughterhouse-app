@@ -22,7 +22,7 @@ const SellingReport: React.FC<SellingReportProps> = ({
     queryFn: ({ signal }) => {
       return fetchSellingWorkOrder({ signal, sellingWorkOrderCode });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

@@ -21,7 +21,7 @@ const CuttingReport: React.FC<CuttingReportProps> = ({
     queryFn: ({ signal }) => {
       return fetchCuttingWorkOrder({ signal, cuttingWorkOrderCode });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

@@ -29,7 +29,7 @@ const ClientVacuumPieces: React.FC = () => {
     queryFn: ({ signal }) => {
       return fetchClientVacuumPieces({ signal, clientId });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

@@ -20,7 +20,7 @@ const SlaughterReport: React.FC<SlaughterReportProps> = ({ workOrderCode }) => {
     queryFn: ({ signal }) => {
       return fetchSlaughterWorkOrder({ signal, workOrderCode });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

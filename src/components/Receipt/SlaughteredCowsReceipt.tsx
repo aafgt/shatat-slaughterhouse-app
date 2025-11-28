@@ -22,7 +22,7 @@ const SlaughteredCowsReceipt: React.FC<SlaughterReceiptProps> = ({
     queryFn: ({ signal }) => {
       return fetchReceiptWorkOrder({ signal, orderCode: workOrderCode });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

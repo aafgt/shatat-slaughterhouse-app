@@ -1,5 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 import { getAuthToken } from "./auth";
+import type { createClientSupplierData } from "../types";
 
 export interface loginSignupData {
   username: string;
@@ -725,6 +726,162 @@ export const fetchClientVacuumPieces = async ({
   const token = getAuthToken();
 
   let response = await fetch(API_URL + `/web-item/client/${clientId}`, {
+    signal: signal,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error = new Error(
+      "An error occurred... Failed to load."
+    ) as customError;
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const data = await response.json();
+
+  return data;
+};
+
+
+////////////////////////////////// Create \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+export const createClient = async (createData: createClientSupplierData) => {
+  const token = getAuthToken();
+
+  let response = await fetch(API_URL + "/data/add-clients", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(createData),
+  });
+
+  if (!response.ok) {
+    const error = new Error(
+      "An error occurred... Failed to load."
+    ) as customError;
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const data = await response.json();
+
+  return data;
+};
+
+export const createSupplier = async (createData: createClientSupplierData) => {
+  const token = getAuthToken();
+
+  let response = await fetch(API_URL + "/data/add-suppliers", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(createData),
+  });
+
+  if (!response.ok) {
+    const error = new Error(
+      "An error occurred... Failed to load."
+    ) as customError;
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const data = await response.json();
+
+  return data;
+};
+
+
+////////////////////////////////// Making Orders \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+export const fetchMakingOrdersDate = async ({
+  signal,
+  date,
+}: {
+  signal: AbortSignal;
+  date: string;
+}) => {
+  const token = getAuthToken();
+
+  let response = await fetch(API_URL + `/making-orders/by-date?date=${date}`, {
+    signal: signal,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error = new Error(
+      "An error occurred... Failed to load."
+    ) as customError;
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const data = await response.json();
+
+  return data;
+};
+
+export const fetchMakingOrder = async ({
+  signal,
+  orderCode,
+}: {
+  signal: AbortSignal;
+  orderCode: string;
+}) => {
+  const token = getAuthToken();
+
+  let response = await fetch(API_URL + `/making-orders/by-order/${orderCode}`, {
+    signal: signal,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    const error = new Error(
+      "An error occurred... Failed to load."
+    ) as customError;
+    error.code = response.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const data = await response.json();
+
+  return data;
+};
+
+export const fetchMakingOrderCowType = async ({
+  signal,
+  orderCode,
+  cowType
+}: {
+  signal: AbortSignal;
+  orderCode: string;
+  cowType: string;
+}) => {
+  const token = getAuthToken();
+
+  let response = await fetch(API_URL + `/making-orders/by-order/${orderCode}/${cowType}`, {
     signal: signal,
     method: "GET",
     headers: {

@@ -26,7 +26,7 @@ const CutDashboard: React.FC<DashboardProps> = ({ startDate, endDate }) => {
       const [, startDate, endDate] = queryKey as [string, string, string];
       return fetchCutDashboard({ signal, startDate, endDate });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

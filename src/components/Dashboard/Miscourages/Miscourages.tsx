@@ -25,7 +25,7 @@ const Miscourages = () => {
       const [, selectedDate] = queryKey as [string, string];
       return fetchMiscourages({ signal, date: selectedDate });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

@@ -21,7 +21,7 @@ const SellingWorkOrders: React.FC<SellingWorkOrdersProps> = ({ date }) => {
       const [, date] = queryKey as [string, string];
       return fetchSellingWorkOrdersByDate({ signal, date });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

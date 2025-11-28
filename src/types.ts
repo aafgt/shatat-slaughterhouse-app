@@ -113,27 +113,27 @@ export interface allWorkOrdersDataInterface {
     totalWeightIn: number;
     totalCutFurtherOut: number;
     totalWeightOut: number;
-    "GA لحوم": number;
-    "GB لحوم": number;
-    حلويات: number;
-    "دهن بوش": number;
-    "دهن كلاوي": number;
-    "دهون مشفاه": number;
-    سنم: number;
-    "عرق دم": number;
-    "عظام تشافي": number;
-    "غدد اعدام": number;
-    غضاريف: number;
-    قراقيش: number;
-    كلاوي: number;
-    كنسه: number;
-    "لحوم اعدام": number;
-    "لحوم كدمات": number;
-    "لحوم مشفاه": number;
-    "لحوم ناف": number;
-    مخاصي: number;
-    نخاع: number;
-    "ورق حجر": number;
+    "GA لحوم": { in: number; out: number; };
+    "GB لحوم": { in: number; out: number; };
+    حلويات: { in: number; out: number; };
+    "دهن بوش": { in: number; out: number; };
+    "دهن كلاوي": { in: number; out: number; };
+    "دهون مشفاه": { in: number; out: number; };
+    سنم: { in: number; out: number; };
+    "عرق دم": { in: number; out: number; };
+    "عظام تشافي": { in: number; out: number; };
+    "غدد اعدام": { in: number; out: number; };
+    غضاريف: { in: number; out: number; };
+    قراقيش: { in: number; out: number; };
+    كلاوي: { in: number; out: number; };
+    كنسه: { in: number; out: number; };
+    "لحوم اعدام": { in: number; out: number; };
+    "لحوم كدمات": { in: number; out: number; };
+    "لحوم مشفاه": { in: number; out: number; };
+    "لحوم ناف": { in: number; out: number; };
+    مخاصي: { in: number; out: number; };
+    نخاع: { in: number; out: number; };
+    "ورق حجر": { in: number; out: number; };
     totalVacuumPieces: number;
     totalVacuumWeightKg: number;
   };
@@ -316,4 +316,34 @@ export interface clientVacuumPiecesDataInterface {
     weight: number;
     date: string;
   }[];
+}
+
+export interface createClientSupplierData {
+  name: string;
+  code: string;
+}
+
+export interface makingOrdersByDateData {
+  clientName: string;
+  orderCode: string;
+  totalCount: number;
+  totalWeightKg: number;
+}
+
+export interface makingOrdersOrderData {
+  cowType: string;
+  totalCount: number;
+  totalWeightKg: number;
+}
+
+export interface makingOrderByCowTypeData {
+  count: number;
+  pieceType: string;
+  pieces: {
+    barcode: string;
+    batchNumber: string;
+    grossWeight: number;
+    netWeight: number;
+  }[];
+  totalWeightKg: number;
 }

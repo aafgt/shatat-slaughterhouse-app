@@ -22,7 +22,7 @@ const AllReport: React.FC<AllReportProps> = ({ workOrderCode }) => {
     queryFn: ({ signal }) => {
       return fetchAllWorkOrder({ signal, workOrderCode });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {
@@ -230,98 +230,212 @@ const AllReport: React.FC<AllReportProps> = ({ workOrderCode }) => {
         />
 
         <MetricCard
-          title="GA لحوم"
-          value={(allWorkOrderData?.cuttingSummary?.["GA لحوم"] ?? 0) + " Kg"}
+          title="GA لحوم IN"
+          value={(allWorkOrderData?.cuttingSummary?.["GA لحوم"].in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="GB لحوم"
-          value={(allWorkOrderData?.cuttingSummary?.["GB لحوم"] ?? 0) + " Kg"}
+          title="GA لحوم OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["GA لحوم"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="GB لحوم IN"
+          value={(allWorkOrderData?.cuttingSummary?.["GB لحوم"].in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="حلويات"
-          value={(allWorkOrderData?.cuttingSummary?.حلويات ?? 0) + " Kg"}
+          title="GB لحوم OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["GB لحوم"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="حلويات IN"
+          value={(allWorkOrderData?.cuttingSummary?.حلويات.in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="دهن بوش"
-          value={(allWorkOrderData?.cuttingSummary?.["دهن بوش"] ?? 0) + " Kg"}
+          title="حلويات OUT"
+          value={(allWorkOrderData?.cuttingSummary?.حلويات.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="دهن بوش IN"
+          value={(allWorkOrderData?.cuttingSummary?.["دهن بوش"].in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="دهن كلاوي"
-          value={(allWorkOrderData?.cuttingSummary?.["دهن كلاوي"] ?? 0) + " Kg"}
+          title="دهن بوش OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["دهن بوش"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="دهن كلاوي IN"
+          value={(allWorkOrderData?.cuttingSummary?.["دهن كلاوي"].in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="دهون مشفاه"
+          title="دهن كلاوي OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["دهن كلاوي"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="دهون مشفاه IN"
           value={
-            (allWorkOrderData?.cuttingSummary?.["دهون مشفاه"] ?? 0) + " Kg"
+            (allWorkOrderData?.cuttingSummary?.["دهون مشفاه"].in ?? 0) + " Kg"
           }
         />
         <MetricCard
-          title="سنم"
-          value={(allWorkOrderData?.cuttingSummary?.سنم ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="عرق دم"
-          value={(allWorkOrderData?.cuttingSummary?.["عرق دم"] ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="عظام تشافي"
+          title="دهون مشفاه OUT"
           value={
-            (allWorkOrderData?.cuttingSummary?.["عظام تشافي"] ?? 0) + " Kg"
+            (allWorkOrderData?.cuttingSummary?.["دهون مشفاه"].out ?? 0) + " Kg"
+          }
+        />
+
+        <MetricCard
+          title="سنم IN"
+          value={(allWorkOrderData?.cuttingSummary?.سنم.in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="سنم OUT"
+          value={(allWorkOrderData?.cuttingSummary?.سنم.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="عرق دم IN"
+          value={(allWorkOrderData?.cuttingSummary?.["عرق دم"].in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="عرق دم OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["عرق دم"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="عظام تشافي IN"
+          value={
+            (allWorkOrderData?.cuttingSummary?.["عظام تشافي"].in ?? 0) + " Kg"
           }
         />
         <MetricCard
-          title="غدد اعدام"
-          value={(allWorkOrderData?.cuttingSummary?.["غدد اعدام"] ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="غضاريف"
-          value={(allWorkOrderData?.cuttingSummary?.غضاريف ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="قراقيش"
-          value={(allWorkOrderData?.cuttingSummary?.قراقيش ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="كلاوي"
-          value={(allWorkOrderData?.cuttingSummary?.كلاوي ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="كنسه"
-          value={(allWorkOrderData?.cuttingSummary?.كنسه ?? 0) + " Kg"}
-        />
-        <MetricCard
-          title="لحوم اعدام"
+          title="عظام تشافي OUT"
           value={
-            (allWorkOrderData?.cuttingSummary?.["لحوم اعدام"] ?? 0) + " Kg"
+            (allWorkOrderData?.cuttingSummary?.["عظام تشافي"].out ?? 0) + " Kg"
+          }
+        />
+
+        <MetricCard
+          title="غدد اعدام IN"
+          value={(allWorkOrderData?.cuttingSummary?.["غدد اعدام"].in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="غدد اعدام OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["غدد اعدام"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="غضاريف IN"
+          value={(allWorkOrderData?.cuttingSummary?.غضاريف.in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="غضاريف OUT"
+          value={(allWorkOrderData?.cuttingSummary?.غضاريف.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="قراقيش IN"
+          value={(allWorkOrderData?.cuttingSummary?.قراقيش.in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="قراقيش OUT"
+          value={(allWorkOrderData?.cuttingSummary?.قراقيش.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="كلاوي IN"
+          value={(allWorkOrderData?.cuttingSummary?.كلاوي.in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="كلاوي OUT"
+          value={(allWorkOrderData?.cuttingSummary?.كلاوي.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="كنسه IN"
+          value={(allWorkOrderData?.cuttingSummary?.كنسه.in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="كنسه OUT"
+          value={(allWorkOrderData?.cuttingSummary?.كنسه.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="لحوم اعدام IN"
+          value={
+            (allWorkOrderData?.cuttingSummary?.["لحوم اعدام"].in ?? 0) + " Kg"
           }
         />
         <MetricCard
-          title="لحوم كدمات"
+          title="لحوم اعدام OUT"
           value={
-            (allWorkOrderData?.cuttingSummary?.["لحوم كدمات"] ?? 0) + " Kg"
+            (allWorkOrderData?.cuttingSummary?.["لحوم اعدام"].out ?? 0) + " Kg"
+          }
+        />
+
+        <MetricCard
+          title="لحوم كدمات IN"
+          value={
+            (allWorkOrderData?.cuttingSummary?.["لحوم كدمات"].in ?? 0) + " Kg"
           }
         />
         <MetricCard
-          title="لحوم مشفاه"
+          title="لحوم كدمات OUT"
           value={
-            (allWorkOrderData?.cuttingSummary?.["لحوم مشفاه"] ?? 0) + " Kg"
+            (allWorkOrderData?.cuttingSummary?.["لحوم كدمات"].out ?? 0) + " Kg"
+          }
+        />
+
+        <MetricCard
+          title="لحوم مشفاه IN"
+          value={
+            (allWorkOrderData?.cuttingSummary?.["لحوم مشفاه"].in ?? 0) + " Kg"
           }
         />
         <MetricCard
-          title="لحوم ناف"
-          value={(allWorkOrderData?.cuttingSummary?.["لحوم ناف"] ?? 0) + " Kg"}
+          title="لحوم مشفاه OUT"
+          value={
+            (allWorkOrderData?.cuttingSummary?.["لحوم مشفاه"].out ?? 0) + " Kg"
+          }
+        />
+
+        <MetricCard
+          title="لحوم ناف IN"
+          value={(allWorkOrderData?.cuttingSummary?.["لحوم ناف"].in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="مخاصي"
-          value={(allWorkOrderData?.cuttingSummary?.مخاصي ?? 0) + " Kg"}
+          title="لحوم ناف OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["لحوم ناف"].out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="مخاصي IN"
+          value={(allWorkOrderData?.cuttingSummary?.مخاصي.in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="نخاع"
-          value={(allWorkOrderData?.cuttingSummary?.نخاع ?? 0) + " Kg"}
+          title="مخاصي OUT"
+          value={(allWorkOrderData?.cuttingSummary?.مخاصي.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="نخاع IN"
+          value={(allWorkOrderData?.cuttingSummary?.نخاع.in ?? 0) + " Kg"}
         />
         <MetricCard
-          title="ورق حجر"
-          value={(allWorkOrderData?.cuttingSummary?.["ورق حجر"] ?? 0) + " Kg"}
+          title="نخاع OUT"
+          value={(allWorkOrderData?.cuttingSummary?.نخاع.out ?? 0) + " Kg"}
+        />
+
+        <MetricCard
+          title="ورق حجر IN"
+          value={(allWorkOrderData?.cuttingSummary?.["ورق حجر"].in ?? 0) + " Kg"}
+        />
+        <MetricCard
+          title="ورق حجر OUT"
+          value={(allWorkOrderData?.cuttingSummary?.["ورق حجر"].out ?? 0) + " Kg"}
         />
       </div>
 

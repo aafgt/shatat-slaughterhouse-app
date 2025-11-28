@@ -10,6 +10,8 @@ import Report from "./components/Report/Report";
 import Receipt from "./components/Receipt/Receipt";
 import Clients from "./components/Clients/Clients";
 import ClientVacuumPieces from "./components/Clients/ClientVacuumPieces";
+import Create from "./components/Create/Create";
+import MakingOrders from "./components/MakingOrders/MakingOrders";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
           {
             path: "clients/:clientId",
             element: <ClientVacuumPieces />,
+          },
+          {
+            path: "making-orders",
+            element: <MakingOrders />,
+          },
+          {
+            path: "create",
+            element: <Create />,
           },
         ],
       },

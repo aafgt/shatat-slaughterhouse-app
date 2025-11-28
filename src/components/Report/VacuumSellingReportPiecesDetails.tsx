@@ -35,7 +35,7 @@ const VacuumSellingReportPiecesDetails: React.FC<SellingReportProps> = ({
         cowType,
       });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

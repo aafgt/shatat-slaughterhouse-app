@@ -28,7 +28,7 @@ const VacuumSellingReport: React.FC<SellingReportProps> = ({ date }) => {
     queryFn: ({ signal }) => {
       return fetchVacuumSellingWorkOrders({ signal, date });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

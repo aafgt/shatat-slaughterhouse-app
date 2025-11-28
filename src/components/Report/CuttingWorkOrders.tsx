@@ -21,7 +21,7 @@ const CuttingWorkOrders: React.FC<CuttingWorkOrdersProps> = ({ date }) => {
       const [, date] = queryKey as [string, string];
       return fetchCuttingWorkOrdersByDate({ signal, date });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {

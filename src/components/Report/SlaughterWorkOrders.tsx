@@ -23,7 +23,7 @@ const SlaughterWorkOrders: React.FC<SlaughterWorkOrdersProps> = ({ date, forPage
       const [, date] = queryKey as [string, string];
       return fetchSlaughterWorkOrdersByDate({ signal, date });
     },
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
   });
 
   if (isFetching) {
